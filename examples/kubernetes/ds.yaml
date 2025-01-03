@@ -1,0 +1,304 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    analysis.crane.io/resource-recommendation: |
+      containers:
+      - containerName: node-exporter
+        target:
+          cpu: 125m
+          memory: 125Mi
+      - containerName: kube-rbac-proxy
+        target:
+          cpu: 125m
+          memory: 125Mi
+    deprecated.daemonset.template.generation: "6"
+    field.cattle.io/publicEndpoints: '[{"nodeName":":10.226.0.45","addresses":["10.226.0.45"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-fxtxf","allNodes":false},{"nodeName":":10.226.0.17","addresses":["10.226.0.17"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-hlmm4","allNodes":false},{"nodeName":":10.226.0.35","addresses":["10.226.0.35"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-7cgck","allNodes":false},{"nodeName":":10.226.0.18","addresses":["10.226.0.18"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-8wjkc","allNodes":false},{"nodeName":":10.226.0.33","addresses":["10.226.0.33"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-j6sqg","allNodes":false},{"nodeName":":10.226.3.6","addresses":["10.226.3.6"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-r2pjm","allNodes":false},{"nodeName":":10.226.2.13","addresses":["10.226.2.13"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-v5xqc","allNodes":false},{"nodeName":":10.226.3.34","addresses":["10.226.3.34"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-x79s6","allNodes":false},{"nodeName":":10.226.1.5","addresses":["10.226.1.5"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-2sdqc","allNodes":false},{"nodeName":":10.226.1.13","addresses":["10.226.1.13"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-6lds7","allNodes":false},{"nodeName":":10.226.1.17","addresses":["10.226.1.17"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-kdm66","allNodes":false},{"nodeName":":10.226.3.15","addresses":["10.226.3.15"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-nrk52","allNodes":false},{"nodeName":":10.226.2.14","addresses":["10.226.2.14"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-c2k5c","allNodes":false},{"nodeName":":10.226.2.15","addresses":["10.226.2.15"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-d7hjn","allNodes":false},{"nodeName":":10.226.0.48","addresses":["10.226.0.48"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-kg2m6","allNodes":false},{"nodeName":":10.226.1.24","addresses":["10.226.1.24"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-t2t7h","allNodes":false},{"nodeName":":10.226.2.3","addresses":["10.226.2.3"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-q4q22","allNodes":false},{"nodeName":":10.226.0.23","addresses":["10.226.0.23"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-8hxx4","allNodes":false},{"nodeName":":10.226.1.28","addresses":["10.226.1.28"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-cx228","allNodes":false},{"nodeName":":10.226.3.5","addresses":["10.226.3.5"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-lwmk2","allNodes":false},{"nodeName":":10.226.1.29","addresses":["10.226.1.29"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-qj4kh","allNodes":false},{"nodeName":":10.226.2.9","addresses":["10.226.2.9"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-vt9nz","allNodes":false},{"nodeName":":10.226.1.14","addresses":["10.226.1.14"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-9wf9p","allNodes":false},{"nodeName":":10.226.1.12","addresses":["10.226.1.12"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-jx5jj","allNodes":false},{"nodeName":":10.226.2.8","addresses":["10.226.2.8"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-gkncs","allNodes":false},{"nodeName":":10.226.2.11","addresses":["10.226.2.11"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-h6wnr","allNodes":false},{"nodeName":":10.226.2.17","addresses":["10.226.2.17"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-zdp46","allNodes":false},{"nodeName":":10.226.0.40","addresses":["10.226.0.40"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-bwwdk","allNodes":false},{"nodeName":":10.226.3.29","addresses":["10.226.3.29"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-f8gp7","allNodes":false},{"nodeName":":10.226.1.7","addresses":["10.226.1.7"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-vtz4x","allNodes":false},{"nodeName":":10.226.1.6","addresses":["10.226.1.6"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-vzqvk","allNodes":false},{"nodeName":":10.226.0.32","addresses":["10.226.0.32"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-cv8gn","allNodes":false},{"nodeName":":10.226.1.20","addresses":["10.226.1.20"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-nmqw8","allNodes":false},{"nodeName":":10.226.3.22","addresses":["10.226.3.22"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-tq46g","allNodes":false},{"nodeName":":10.226.1.32","addresses":["10.226.1.32"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-z58mf","allNodes":false},{"nodeName":":10.226.2.6","addresses":["10.226.2.6"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-r7mm4","allNodes":false},{"nodeName":":10.226.2.5","addresses":["10.226.2.5"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-v6dnz","allNodes":false},{"nodeName":":10.226.1.34","addresses":["10.226.1.34"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-tsrpj","allNodes":false},{"nodeName":":10.226.0.14","addresses":["10.226.0.14"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-m77mz","allNodes":false},{"nodeName":":10.226.1.44","addresses":["10.226.1.44"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-qslbv","allNodes":false},{"nodeName":":10.226.1.18","addresses":["10.226.1.18"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-qxthf","allNodes":false},{"nodeName":":10.226.3.14","addresses":["10.226.3.14"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-sb67n","allNodes":false},{"nodeName":":10.226.0.38","addresses":["10.226.0.38"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-6jq69","allNodes":false},{"nodeName":":10.226.0.44","addresses":["10.226.0.44"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-wwwmf","allNodes":false},{"nodeName":":10.226.3.10","addresses":["10.226.3.10"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-f6cgq","allNodes":false},{"nodeName":":10.226.1.16","addresses":["10.226.1.16"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-j8rqt","allNodes":false},{"nodeName":":10.226.2.7","addresses":["10.226.2.7"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-k592k","allNodes":false},{"nodeName":":10.226.1.33","addresses":["10.226.1.33"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-ktbnd","allNodes":false},{"nodeName":":10.226.3.36","addresses":["10.226.3.36"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-nv5md","allNodes":false},{"nodeName":":10.226.0.37","addresses":["10.226.0.37"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-595gt","allNodes":false},{"nodeName":":10.226.1.22","addresses":["10.226.1.22"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-bvvmt","allNodes":false},{"nodeName":":10.226.0.15","addresses":["10.226.0.15"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-p59nz","allNodes":false},{"nodeName":":10.226.0.21","addresses":["10.226.0.21"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-wv9qq","allNodes":false},{"nodeName":":10.226.0.12","addresses":["10.226.0.12"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-25srh","allNodes":false},{"nodeName":":10.226.0.9","addresses":["10.226.0.9"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-7hp97","allNodes":false},{"nodeName":":10.226.0.36","addresses":["10.226.0.36"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-kl7l5","allNodes":false},{"nodeName":":10.226.0.8","addresses":["10.226.0.8"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-stl94","allNodes":false},{"nodeName":":10.226.0.10","addresses":["10.226.0.10"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-vgwrt","allNodes":false},{"nodeName":":10.226.1.30","addresses":["10.226.1.30"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-58l2k","allNodes":false},{"nodeName":":10.226.1.9","addresses":["10.226.1.9"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-7f7fs","allNodes":false},{"nodeName":":10.226.0.2","addresses":["10.226.0.2"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-zp48g","allNodes":false},{"nodeName":":10.226.0.4","addresses":["10.226.0.4"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-f22wn","allNodes":false},{"nodeName":":10.226.0.13","addresses":["10.226.0.13"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-tbl2h","allNodes":false},{"nodeName":":10.226.2.16","addresses":["10.226.2.16"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-bzvbs","allNodes":false},{"nodeName":":10.226.3.7","addresses":["10.226.3.7"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-r65tn","allNodes":false},{"nodeName":":10.226.0.6","addresses":["10.226.0.6"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-gl47l","allNodes":false},{"nodeName":":10.226.3.13","addresses":["10.226.3.13"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-pdw6h","allNodes":false},{"nodeName":":10.226.0.39","addresses":["10.226.0.39"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-7bgcj","allNodes":false},{"nodeName":":10.226.1.8","addresses":["10.226.1.8"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-gfjr4","allNodes":false},{"nodeName":":10.226.3.47","addresses":["10.226.3.47"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-xn64r","allNodes":false},{"nodeName":":10.226.1.39","addresses":["10.226.1.39"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-fhxlp","allNodes":false},{"nodeName":":10.226.3.8","addresses":["10.226.3.8"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-r5vkz","allNodes":false},{"nodeName":":10.226.3.3","addresses":["10.226.3.3"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-mmc95","allNodes":false},{"nodeName":":10.226.0.20","addresses":["10.226.0.20"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-mpcxv","allNodes":false},{"nodeName":":10.226.0.41","addresses":["10.226.0.41"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-6xjgw","allNodes":false},{"nodeName":":10.226.0.31","addresses":["10.226.0.31"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-4cprh","allNodes":false},{"nodeName":":10.226.3.30","addresses":["10.226.3.30"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-vf6vd","allNodes":false},{"nodeName":":10.226.3.11","addresses":["10.226.3.11"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-xbs4r","allNodes":false},{"nodeName":":10.226.0.46","addresses":["10.226.0.46"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-t99nc","allNodes":false},{"nodeName":":10.226.2.12","addresses":["10.226.2.12"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-bhqp8","allNodes":false},{"nodeName":":10.226.2.10","addresses":["10.226.2.10"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-4zpj6","allNodes":false},{"nodeName":":10.226.1.15","addresses":["10.226.1.15"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-6qqkh","allNodes":false},{"nodeName":":10.226.1.27","addresses":["10.226.1.27"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-wrccn","allNodes":false},{"nodeName":":10.226.0.3","addresses":["10.226.0.3"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-x4f8k","allNodes":false},{"nodeName":":10.226.0.5","addresses":["10.226.0.5"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-dz8tt","allNodes":false},{"nodeName":":10.226.0.42","addresses":["10.226.0.42"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-pdg2s","allNodes":false},{"nodeName":":10.226.3.2","addresses":["10.226.3.2"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-xbsq7","allNodes":false},{"nodeName":":10.226.0.34","addresses":["10.226.0.34"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-6nw2k","allNodes":false},{"nodeName":":10.226.1.40","addresses":["10.226.1.40"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-bn8ww","allNodes":false},{"nodeName":":10.226.3.17","addresses":["10.226.3.17"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-fk8sx","allNodes":false},{"nodeName":":10.226.3.12","addresses":["10.226.3.12"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-gkv7j","allNodes":false},{"nodeName":":10.226.2.4","addresses":["10.226.2.4"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-9qrhd","allNodes":false},{"nodeName":":10.226.0.16","addresses":["10.226.0.16"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-f9gr9","allNodes":false},{"nodeName":":10.226.3.4","addresses":["10.226.3.4"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-62g4w","allNodes":false},{"nodeName":":10.226.1.38","addresses":["10.226.1.38"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-ftgls","allNodes":false},{"nodeName":":10.226.0.7","addresses":["10.226.0.7"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-gfx8m","allNodes":false},{"nodeName":":10.226.3.16","addresses":["10.226.3.16"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-22thz","allNodes":false},{"nodeName":":10.226.3.9","addresses":["10.226.3.9"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-lkk4d","allNodes":false},{"nodeName":":10.226.3.43","addresses":["10.226.3.43"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-7wzrl","allNodes":false},{"nodeName":":10.226.0.22","addresses":["10.226.0.22"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-fvp6t","allNodes":false},{"nodeName":":10.226.1.10","addresses":["10.226.1.10"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-jdlv9","allNodes":false},{"nodeName":":10.226.1.37","addresses":["10.226.1.37"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-kqhn6","allNodes":false},{"nodeName":":10.226.1.11","addresses":["10.226.1.11"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-9xw7z","allNodes":false},{"nodeName":":10.226.0.49","addresses":["10.226.0.49"],"port":9100,"protocol":"TCP","podName":"monitoring:node-exporter-dl8bl","allNodes":false}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"node-exporter","app.kubernetes.io/version":"v0.18.1"},"name":"node-exporter","namespace":"monitoring"},"spec":{"selector":{"matchLabels":{"app.kubernetes.io/name":"node-exporter"}},"template":{"metadata":{"labels":{"app.kubernetes.io/name":"node-exporter","app.kubernetes.io/version":"v0.18.1"}},"spec":{"containers":[{"args":["--web.listen-address=127.0.0.1:9100","--path.procfs=/host/proc","--path.sysfs=/host/sys","--path.rootfs=/host/root","--no-collector.wifi","--no-collector.hwmon","--collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/pods/.+)($|/)"],"image":"registry.ke.com/docker-sh-local/system/node-exporter:v0.18.1","imagePullPolicy":"IfNotPresent","name":"node-exporter","resources":{"limits":{"cpu":"250m","memory":"180Mi"},"requests":{"cpu":"102m","memory":"180Mi"}},"volumeMounts":[{"mountPath":"/host/proc","name":"proc","readOnly":false},{"mountPath":"/host/sys","name":"sys","readOnly":false},{"mountPath":"/host/root","mountPropagation":"HostToContainer","name":"root","readOnly":true}]},{"args":["--logtostderr","--secure-listen-address=[$(IP)]:9100","--tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305","--upstream=http://127.0.0.1:9100/"],"env":[{"name":"IP","valueFrom":{"fieldRef":{"fieldPath":"status.podIP"}}}],"image":"registry.ke.com/docker-sh-local/system/kube-rbac-proxy:v0.4.1","imagePullPolicy":"IfNotPresent","name":"kube-rbac-proxy","ports":[{"containerPort":9100,"hostPort":9100,"name":"https"}],"resources":{"limits":{"cpu":"20m","memory":"40Mi"},"requests":{"cpu":"10m","memory":"20Mi"}}}],"hostNetwork":true,"securityContext":{"runAsNonRoot":true,"runAsUser":65534},"serviceAccountName":"node-exporter","tolerations":[{"operator":"Exists"}],"volumes":[{"hostPath":{"path":"/proc"},"name":"proc"},{"hostPath":{"path":"/sys"},"name":"sys"},{"hostPath":{"path":"/"},"name":"root"}]}}}}
+  labels:
+    app.kubernetes.io/name: node-exporter
+    app.kubernetes.io/version: v0.18.1
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:deprecated.daemonset.template.generation: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:app.kubernetes.io/name: {}
+            f:app.kubernetes.io/version: {}
+        f:spec:
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app.kubernetes.io/name: {}
+                f:app.kubernetes.io/version: {}
+            f:spec:
+              f:containers:
+                k:{"name":"kube-rbac-proxy"}:
+                  .: {}
+                  f:args: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"IP"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef:
+                          .: {}
+                          f:apiVersion: {}
+                          f:fieldPath: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":9100,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:hostPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                k:{"name":"node-exporter"}:
+                  .: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/host/proc"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                    k:{"mountPath":"/host/root"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:mountPropagation: {}
+                      f:name: {}
+                      f:readOnly: {}
+                    k:{"mountPath":"/host/sys"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+              f:dnsPolicy: {}
+              f:hostNetwork: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext:
+                .: {}
+                f:runAsNonRoot: {}
+                f:runAsUser: {}
+              f:serviceAccount: {}
+              f:serviceAccountName: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"proc"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"root"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+                k:{"name":"sys"}:
+                  .: {}
+                  f:hostPath:
+                    .: {}
+                    f:path: {}
+                    f:type: {}
+                  f:name: {}
+          f:updateStrategy:
+            f:rollingUpdate:
+              .: {}
+              f:maxUnavailable: {}
+            f:type: {}
+      manager: kubectl
+      operation: Update
+      time: "2021-05-20T10:48:21Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:field.cattle.io/publicEndpoints: {}
+      manager: agent
+      operation: Update
+      time: "2022-08-02T10:30:06Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:analysis.crane.io/resource-recommendation: {}
+      manager: craned
+      operation: Update
+      time: "2022-11-09T09:24:51Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:spec:
+          f:template:
+            f:spec:
+              f:containers:
+                k:{"name":"node-exporter"}:
+                  f:args: {}
+              f:tolerations: {}
+      manager: kubectl-edit
+      operation: Update
+      time: "2024-02-27T02:31:28Z"
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:currentNumberScheduled: {}
+          f:desiredNumberScheduled: {}
+          f:numberAvailable: {}
+          f:numberMisscheduled: {}
+          f:numberReady: {}
+          f:observedGeneration: {}
+          f:updatedNumberScheduled: {}
+      manager: kube-controller-manager
+      operation: Update
+      time: "2024-12-23T08:17:01Z"
+  name: node-exporter
+  namespace: monitoring
+  selfLink: /apis/apps/v1/namespaces/monitoring/daemonsets/node-exporter
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: node-exporter
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: node-exporter
+        app.kubernetes.io/version: v0.18.1
+    spec:
+      containers:
+        - args:
+            - --web.listen-address=127.0.0.1:9100
+            - --path.procfs=/host/proc
+            - --path.sysfs=/host/sys
+            - --path.rootfs=/host/root
+            - --no-collector.wifi
+            - --no-collector.hwmon
+            - --no-collector.ipvs
+            - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+|var/lib/kubelet/pods/.+|data0/docker/.+|data0/kubelet/pods/.+)($|/)
+          image: registry.ke.com/docker-sh-local/system/node-exporter:v0.18.1
+          imagePullPolicy: IfNotPresent
+          name: node-exporter
+          resources:
+            limits:
+              cpu: 250m
+              memory: 180Mi
+            requests:
+              cpu: 102m
+              memory: 180Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /host/proc
+              name: proc
+            - mountPath: /host/sys
+              name: sys
+            - mountPath: /host/root
+              mountPropagation: HostToContainer
+              name: root
+              readOnly: true
+        - args:
+            - --logtostderr
+            - --secure-listen-address=[$(IP)]:9100
+            - --tls-cipher-suites=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+            - --upstream=http://127.0.0.1:9100/
+          env:
+            - name: IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP
+          image: registry.ke.com/docker-sh-local/system/kube-rbac-proxy:v0.4.1
+          imagePullPolicy: IfNotPresent
+          name: kube-rbac-proxy
+          ports:
+            - containerPort: 9100
+              hostPort: 9100
+              name: https
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 20m
+              memory: 40Mi
+            requests:
+              cpu: 10m
+              memory: 20Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      hostNetwork: true
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 65534
+      serviceAccount: node-exporter
+      serviceAccountName: node-exporter
+      terminationGracePeriodSeconds: 30
+      tolerations:
+        - operator: Exists
+      volumes:
+        - hostPath:
+            path: /proc
+            type: ""
+          name: proc
+        - hostPath:
+            path: /sys
+            type: ""
+          name: sys
+        - hostPath:
+            path: /
+            type: ""
+          name: root
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
